@@ -1,6 +1,6 @@
 {
   "name": "overjoy-await",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Hapi.js plugin to provide handler works nicely with async/await function",
   "main": "lib/library.min.js",
   "scripts": {
