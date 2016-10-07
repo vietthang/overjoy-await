@@ -1,0 +1,72 @@
+{
+  "name": "overjoy-await",
+  "version": "0.0.1",
+  "description": "Hapi.js plugin to provide handler works nicely with async/await function",
+  "main": "lib/library.min.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --config scripts/webpack.config.production.js",
+    "watch:dev": "webpack --colors --progress --config scripts/webpack.config.development.js --watch",
+    "build:dev": "webpack --colors --progress --config scripts/webpack.config.development.js",
+    "watch:test": "NODE_ENV=test webpack --colors --progress --config scripts/webpack.config.test.js --watch",
+    "build:test": "NODE_ENV=test webpack --colors --progress --config scripts/webpack.config.test.js",
+    "watch": "concurrently --kill-others \"npm run watch:dev\" \"npm run watch:test\"",
+    "mocha": "NODE_ENV=test mocha --colors --recursive --reporter progress ./build/test",
+    "prepare": "npm run clean && mkdir -p build",
+    "clean": "rm -rf build/*",
+    "lint": "eslint .",
+    "test": "npm run lint && npm run build:test && npm run coverage",
+    "start": "node index.js",
+    "coverage": "nyc npm run mocha",
+    "coverage:report": "nyc report",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vietthang/overjoy-await.git"
+  },
+  "keywords": [
+    "hapi",
+    "promise",
+    "async",
+    "await",
+    "handler"
+  ],
+  "author": "Yoshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vietthang/overjoy-await/issues"
+  },
+  "homepage": "https://github.com/vietthang/overjoy-await#readme",
+  "devDependencies": {
+    "babel-core": "6.17.0",
+    "babel-eslint": "7.0.0",
+    "babel-loader": "6.2.5",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-plugin-lodash": "^3.2.9",
+    "babel-preset-babili": "0.0.4",
+    "babel-preset-node6": "^11.0.0",
+    "babel-preset-stage-2": "^6.17.0",
+    "boom": "^4.1.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "concurrently": "^3.1.0",
+    "eslint": "^3.7.0",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "hapi": "^15.1.1",
+    "mocha": "3.1.0",
+    "nyc": "^8.3.0",
+    "source-map-support": "^0.4.3",
+    "webpack": "1.13.2",
+    "webpack-node-externals": "^1.4.3"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  }
+}

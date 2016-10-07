@@ -1,0 +1,19 @@
+{
+  "sourceMap": true,
+  "presets": [
+    "stage-2",
+    "node6",
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "istanbul",
+      ],
+    },
+    "production": {
+      "presets": [
+        "babili",
+      ],
+    },
+  }
+}
