@@ -2,7 +2,7 @@ import 'source-map-support/register';
 import { Server } from 'hapi';
 import Boom from 'boom';
 
-import assert from './common/assert';
+import { assert } from 'chai';
 import * as plugin from '../src/index';
 
 class StubException extends Error {
