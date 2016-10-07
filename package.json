@@ -18,7 +18,7 @@
     "start": "node index.js",
     "coverage": "nyc npm run mocha",
     "coverage:report": "nyc report",
-    "preversion": "npm run build"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
