@@ -40,4 +40,3 @@ jspm_packages
 build
 coverage
 .nyc_output
-lib
