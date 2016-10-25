@@ -3,8 +3,8 @@
  * @param  {Any} value Any value to check
  * @return {Boolean}
  */
-function isResponse(value) {
-  return value && value.statusCode;
+function isResponse(value, request) {
+  return value && value.request === request;
 }
 
 export function register(server, { handlerName = 'await' }, next) {
@@ -12,7 +12,7 @@ export function register(server, { handlerName = 'await' }, next) {
     (request, reply) => {
       asyncHandler.bind(this)(request, reply).then((result) => {
         // just skip if the result returned is Hapi response
-        if (isResponse(result)) {
+        if (isResponse(result, request)) {
           return;
         }
 
